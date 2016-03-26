@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+vim/doc/tags
+*.dll
+*.so
+*.a
+*.pyd
+
+vim/bundle/
+!vim/bundle/Vundle.vim
+_vimrc.local

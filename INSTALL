@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+OS_TYPE=`uname`
+CURRENT_PATH=$(pwd)
+
+function init_vim_file()
+{
+    rm -rf ~/.vim
+    rm -f ~/.vimrc
+    rm -f ~/.vimrc.local
+
+    ln -s "${CURRENT_PATH}/vim" ~/.vim
+    ln -s "${CURRENT_PATH}/_vimrc" ~/.vimrc
+}
+
+function init_linux_font()
+{
+    mkdir -p ~/.fonts
+    unzip "${CURRENT_PATH}/fonts/consolas-powerline-vim-master.zip" -d ~/.fonts
+    cp -f ~/.fonts/consolas-powerline-vim-master/*.ttf ~/.fonts
+    rm -rf ~/.fonts/consolas-powerline-vim-master
+    cd ~/.fonts
+    mkfontscale
+    mkfontdir
+}
+
+function init_mac_dependeny()
+{
+    brew install ctags
+    brew install ag
+    sudo pip install --upgrade pyflakes
+    sudo pip install --upgrade pylint
+    sudo pip install --upgrade pep8
+    sudo npm install jshint -g
+    sudo npm install jslint -g
+}
+
+function init_unix_dependeny()
+{
+    local os_name=`cat /etc/issue | head -n 1 | awk '{print $1}'`
+    echo $os_name
+    if [ "${os_name}" = "CentOS" ]; then
+        sudo yum install -y ctags-etags cscope
+        :
+    elif [ "${os_name}" = "Fedora" ]; then
+        sudo yum install -y ctags-etags cscope
+        :
+    else
+        echo "Unsupported OS type"
+    fi
+}
+
+if [ "${OS_TYPE}" = "Darwin" ]; then
+    init_vim_file;
+    init_mac_dependeny;
+elif [ "${OS_TYPE}" = "Linux" ]; then
+    init_vim_file;
+    init_linux_font;
+    init_unix_dependeny;
+else
+    echo "Unsupported OS type"
+    exit 1
+fi
