@@ -53,6 +53,15 @@ map <space><space> <leader><leader>
         Plugin 'thinca/vim-quickrun'
     "}}}
 
+    "{{{ Rust
+		Plugin 'racer-rust/vim-racer'
+        Plugin 'rust-lang/rust.vim'
+        "let g:rustfmt_autosave = 1
+        set hidden
+        let g:racer_cmd = "/Users/gaobushuang/rust/racer/target/release/racer"
+        let $RUST_SRC_PATH="/Users/gaobushuang/Developer/rust-master/src"
+    "}}}
+
     "{{{ Go
         Plugin 'fatih/vim-go'
         Plugin 'rjohnsondev/vim-compiler-go'
@@ -108,7 +117,7 @@ map <space><space> <leader><leader>
         " enable repeating supported plugin maps with .
         Plugin 'tpope/vim-repeat'
         " automatic resizing
-        Plugin 'roman/golden-ratio'
+        "Plugin 'roman/golden-ratio'
     "}}}
 
     "{{{ 主题
@@ -218,7 +227,7 @@ call vundle#end()
         " 命令行使用的屏幕行数
         set cmdheight=1
         " 插入文本的最大宽度
-        set textwidth=78
+        set textwidth=80
         " 是否显示标尺
         set cc=+1
         " 光标上下两侧最少保留的屏幕行数
@@ -516,7 +525,7 @@ call vundle#end()
         "}}}
 
         "{{{ golden-ratio
-            let g:golden_ratio_exclude_nonmodifiable = 1
+            " let g:golden_ratio_exclude_nonmodifiable = 1
         "}}}
     "}}}
 
