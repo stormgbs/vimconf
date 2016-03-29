@@ -118,6 +118,7 @@ map <space><space> <leader><leader>
         Plugin 'tpope/vim-repeat'
         " automatic resizing
         "Plugin 'roman/golden-ratio'
+        "Plugin 'vim-scripts/AutoClose'
     "}}}
 
     "{{{ 主题
@@ -142,6 +143,8 @@ call vundle#end()
         syntax on
         " 激活语法高亮
         syntax enable
+        " 开启自动折行
+        set wrap
     "}}}
 
     "{{{ 编码及存储
