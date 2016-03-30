@@ -51,6 +51,8 @@ map <space><space> <leader><leader>
         Plugin 'tpope/vim-dispatch'
         " 快速运行代码
         Plugin 'thinca/vim-quickrun'
+        " 格式化代码
+        Plugin 'Chiel92/vim-autoformat'
     "}}}
 
     "{{{ Rust
@@ -60,6 +62,9 @@ map <space><space> <leader><leader>
         set hidden
         let g:racer_cmd = "/Users/gaobushuang/rust/racer/target/release/racer"
         let $RUST_SRC_PATH="/Users/gaobushuang/Developer/rust-master/src"
+        " format rust files
+        let g:formatdef_rustfmt = '"rustfmt"'
+        nmap <Leader>f :Autoformat<CR>
     "}}}
 
     "{{{ Go
