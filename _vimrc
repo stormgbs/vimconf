@@ -1,8 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 作者:     凝霜
-" E-mail:   mdl2009@vip.qq.com
-" GitHub:   https://github.com/NsLib
-" Blog:     http://blog.csdn.net/MDL13412
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "{{{ before
@@ -307,7 +303,7 @@ call vundle#end()
                     \ endif
 
         " 默认加载tags
-        set tags=tags;/
+        "set tags=tags;/
         " 离开插入模式后自动关闭预览窗口
         autocmd InsertLeave * if pumvisible() == 0|pclose|endif
     "}}}
