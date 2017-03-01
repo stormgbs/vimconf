@@ -1,6 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" zc 折叠
+" zC 对所在范围内所有嵌套的折叠点进行折叠
+" zo 展开折叠
+" zO 对所在范围内所有嵌套的折叠点展开
+" [z 到当前打开的折叠的开始处。
+" ]z 到当前打开的折叠的末尾处。
+" zj 向下移动。到达下一个折叠的开始处。关闭的折叠也被计入。
+" zk 向上移动到前一折叠的结束处。关闭的折叠也被计入。
+
 "{{{ before
 set nocompatible
 set hidden
@@ -32,7 +41,7 @@ map <space><space> <leader><leader>
         " 切换工作目录到项目根目录
         Plugin 'airblade/vim-rooter'
         " 代码片段
-        Plugin 'SirVer/ultisnips'
+        "Plugin 'SirVer/ultisnips'
         " 代码片段
         Plugin 'NsLib/vim-snippets-mod'
         " 快速注释插件
@@ -54,18 +63,21 @@ map <space><space> <leader><leader>
     "{{{ Rust
 		Plugin 'racer-rust/vim-racer'
         Plugin 'rust-lang/rust.vim'
-        "let g:rustfmt_autosave = 1
+        let g:rustfmt_autosave = 1
         set hidden
         let g:racer_cmd = "/Users/gaobushuang/rust/racer/target/release/racer"
         let $RUST_SRC_PATH="/Users/gaobushuang/Developer/rust-master/src"
         " format rust files
         let g:formatdef_rustfmt = '"rustfmt"'
         nmap <Leader>f :Autoformat<CR>
+
+        Plugin 'valloric/YouCompleteMe'
+        let g:ycm_rust_src_path = '/Users/gaobushuang/rust/rust-master/src'
     "}}}
 
     "{{{ Go
         Plugin 'fatih/vim-go'
-        Plugin 'rjohnsondev/vim-compiler-go'
+        "Plugin 'rjohnsondev/vim-compiler-go'
         Plugin 'dgryski/vim-godef'
         Plugin 'vim-jp/vim-go-extra'
     "}}}
@@ -77,6 +89,11 @@ map <space><space> <leader><leader>
         Plugin 'hdima/python-syntax'
         " 缩进
         Plugin 'hynek/vim-python-pep8-indent'
+    "}}}
+
+    "{{{ Scala
+        " 语法高亮
+        Plugin 'derekwyatt/vim-scala'
     "}}}
 
     "{{{ 通用
@@ -354,10 +371,10 @@ call vundle#end()
         "}}}
 
         "{{{  UltiSnips
-            autocmd FileType * call UltiSnips#FileTypeChanged()
-            let g:UltiSnipsExpandTrigger = "ii"
-            let g:UltiSnipsUsePythonVersion = 2
-            let g:UltiSnipsEditSplit = "vertical"
+            "autocmd FileType * call UltiSnips#FileTypeChanged()
+            "let g:UltiSnipsExpandTrigger = "ii"
+            "let g:UltiSnipsUsePythonVersion = 2
+            "let g:UltiSnipsEditSplit = "vertical"
         "}}}
 
         "{{{ tasklist.vim
@@ -544,7 +561,7 @@ call vundle#end()
         nnoremap <S-F7> :call ToggleLineNumberAndNerdTree()<CR>
         nnoremap <F9> :QuickRun
         nnoremap <F11> :NERDTreeFind<CR>
-        nnoremap <F12> :NERDTreeToggle<CR>
+        nnoremap <leader>tt :NERDTreeToggle<CR>
     "}}}
 
     "{{{ vim
@@ -577,10 +594,10 @@ call vundle#end()
             nnoremap <C-l> <C-W>l
 
             " 插入模式下移动光标
-            inoremap <c-h> <left>
-            inoremap <c-l> <right>
-            inoremap <c-j> <c-o>gj
-            inoremap <c-k> <c-o>gk
+            "inoremap <c-h> <left>
+            "inoremap <c-l> <right>
+            "inoremap <c-j> <c-o>gj
+            "inoremap <c-k> <c-o>gk
 
             " vim命令行Emacs风格快捷键绑定
             cnoremap <C-a> <Home>
